@@ -1,0 +1,152 @@
+
+  <br><br>
+<div class="container-fluid">
+
+          <div class="row-fluid">
+          <div class="span3">
+                  <%=image_tag "demo.jpg"%>
+                  <hr/>
+                   <h3><%= current_user.first_name%> <%= current_user.last_name%></h3>
+                   <hr/>
+                   <b><p class="icon-time">Joined at: <%= current_user.created_at%></p></b>
+                   <hr/ >
+   <a href="#button" data-toggle="modal" class="btn btn-primary">Change passoword</a>
+
+
+
+
+
+<div class="modal fade" id="button" role="dialog">
+     
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+          <h5>Edit</h5>
+          </div>
+          <div class="modal-body">
+                  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+                <%= f.error_notification %>
+                  <%= f.input :email, :required => true%>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+
+                <%= f.input :password, :hint => "leave it blank if you don't want to change it" %>
+                <%= f.input :password_confirmation, :required => false %>
+                <%= f.input :current_password,:value => nil, :hint => "we need your current password to confirm your changes", :required => true %>
+              
+           
+         
+              
+          </div>
+          <div class="modal-footer">
+
+                <%= f.button :submit, "Update" %>
+              
+               <a href="#" class="btn btn-primary btn" data-dismiss="modal">close</a>
+       
+
+  
+          </div>
+                      
+        </div>
+
+</div>
+</div>
+
+<% end %>
+
+
+
+
+<div class="modal fade" id="button" role="dialog">
+     
+      <div class="modal-dialog">
+      
+        <div class="modal-content">
+          <div class="modal-header">
+          <h5>Edit</h5>
+          </div>
+          <div class="modal-body">
+                  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+                <%= f.error_notification %>
+                  <%= f.input :email, :required => true%>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+
+                <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+                <%= f.input :password_confirmation, :required => false %>
+                <%= f.input :current_password,:value => nil, :hint => "we need your current password to confirm your changes", :required => true %>
+              
+           
+         
+              
+          </div>
+          <div class="modal-footer">
+
+                <%= f.button :submit, "Update" %>
+              
+               <a href="#" class="btn btn-primary btn" data-dismiss="modal">close</a>
+       
+
+  
+          </div>
+                      
+        </div>
+
+</div>
+</div>
+
+<% end %>
+
+
+
+
+
+
+          </div>
+          
+          <div class="span9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3>Public Profile</h3>
+                    </div>
+                    <div class="panel-body">
+                        <b><h5><%= current_user.first_name %> <%= current_user.last_name%></h5></b>
+                        <hr />
+                        <b><i>Email address:</i><h5><%= current_user.email  %></h5></b>
+                        <hr/>
+                        <b><i>Role</i><h5><%=current_user.role%></h5></b>
+                        <hr/>
+                        <b><i>Gender:</i><h5><%=current_user.gender%></h5></b>
+                        <hr />
+                        <b><i>Current sign in at:</i><h5><%=current_user.current_sign_in_at%></h5></b>
+                        <hr/>
+                        <b><i>Last sign in at:</i><h5><%= current_user.last_sign_in_at%></h5></b>
+                       </div>
+
+                </div>
+                  <%= link_to "Back", :back , :class => "btn btn-info" %>
+               <hr/>
+               <h6>Cancel my account</h6>
+
+            <p>Unhappy? <%= link_to "Cancel", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete , :class => "btn btn-primary btn-small" %></p>
+            
+          </div>
+            
+
+    </div>
+
+
+
+
+
+
+
+
+
+
