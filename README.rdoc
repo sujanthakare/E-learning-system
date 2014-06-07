@@ -1,8 +1,8 @@
-Clone repository to your computer.
-Run	bundle install
+Clone repository to your computer.Run
+ bundle install
 migrate database
-	rake db:migrate
+ rake db:migrate
 open in web browser 	
-	localhost:3000
+ localhost:3000
 you good to go
 	
